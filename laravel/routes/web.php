@@ -22,3 +22,11 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Route::get('/admin/users', [App\Http\Controllers\Admin\UsersController::class, 'index'])->name('users.index');
+
+Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')->group(function() {
+    Route::get('users', 'UsersController@index')->name('users.index');
+    //Route::get('users', 'UsersController@edit')->name('users.edit');
+    //Route::get('users', 'UsersController@destroy')->name('users.destroy');
+});
