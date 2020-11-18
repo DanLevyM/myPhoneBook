@@ -27,6 +27,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')->group(function() {
     Route::get('users', 'UsersController@index')->name('users.index');
-    //Route::get('users', 'UsersController@edit')->name('users.edit');
+    Route::patch('users/{user}', 'UsersController@update')->name('users.update');
+    Route::delete('user/{user}', 'UsersController@destroy')->name('users.destroy');
+    Route::get('users/edit/{user}', 'UsersController@edit')->name('users.edit');
     //Route::get('users', 'UsersController@destroy')->name('users.destroy');
 });
