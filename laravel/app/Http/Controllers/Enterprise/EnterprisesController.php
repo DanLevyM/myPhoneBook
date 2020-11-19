@@ -30,9 +30,28 @@ class EnterprisesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|unique:enterprises|max:80',
+            'address' => 'required|max:100',
+            'postcode' => 'required|max:5',
+            'city' => 'required|max:50',
+            'phone_number' => 'required|min:10|max:10'
+        ]);
+
+        $enterprise = new Enterprise;
+
+        $enterprise->name = $request['name'];
+        $enterprise->address = $request['address'];
+        $enterprise->postcode = $request['postcode'];
+        $enterprise->city = $request['city'];
+        $enterprise->phone_number = $request['phone_number'];
+        $enterprise->email = $request['email'];
+        
+        $enterprise->save();
+
+        return redirect('enterprises');
     }
 
     /**
@@ -89,5 +108,10 @@ class EnterprisesController extends Controller
     public function destroy(Enterprise $enterprise)
     {
         //
+    }
+
+        public function show_form()
+    {
+        return view('enterprise.create');
     }
 }
