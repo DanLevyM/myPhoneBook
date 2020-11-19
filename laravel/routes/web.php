@@ -38,3 +38,8 @@ Route::namespace('App\Http\Controllers\Enterprise')->prefix('enterprises')->name
     Route::get('/create', 'EnterprisesController@show_form')->name('show_form');
     Route::post('/', 'EnterprisesController@create')->name('create');
 });
+
+Route::namespace('App\Http\Controllers\Enterprise')->prefix('enterprises')->name('enterprises.')->middleware('can:see-users')->group(function() {
+    Route::get('/{id}', 'EnterprisesController@enterprise_details')->name('details');
+});
+

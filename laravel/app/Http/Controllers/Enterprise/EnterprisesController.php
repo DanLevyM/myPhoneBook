@@ -114,4 +114,11 @@ class EnterprisesController extends Controller
     {
         return view('enterprise.create');
     }
+
+    public function enterprise_details(Enterprise $id)
+    {
+        return view('enterprise.details', [
+            'enterprise' => $id,
+        ]);
+    }
 }
