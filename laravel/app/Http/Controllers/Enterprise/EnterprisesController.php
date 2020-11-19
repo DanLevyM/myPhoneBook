@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Enterprise;
 
-use App\Http\Controllers\Controller;
 use App\Models\Enterprise;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 
 class EnterprisesController extends Controller
 {
@@ -105,9 +106,15 @@ class EnterprisesController extends Controller
      * @param  \App\Models\Enterprise  $enterprise
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Enterprise $enterprise)
+    public function destroy(Enterprise $id)
     {
-        //
+        if(Gate::denies('delete-users'))
+        {
+            return redirect()->route('/enterprises.index');
+        }
+
+        $id->delete();
+        return redirect()->route('enterprises.index');
     }
 
         public function show_form()

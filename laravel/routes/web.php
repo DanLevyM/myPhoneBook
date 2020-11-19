@@ -33,6 +33,10 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')-
     //Route::get('users', 'UsersController@destroy')->name('users.destroy');
 });
 
+Route::namespace('App\Http\Controllers\Enterprise')->prefix('enterprises')->name('enterprises.')->middleware('can:delete-users')->group(function() {
+    Route::delete('/delete/{id}', 'EnterprisesController@destroy')->name('destroy');
+});
+
 Route::namespace('App\Http\Controllers\Enterprise')->prefix('enterprises')->name('enterprises.')->middleware('can:edit-users')->group(function() {
     Route::get('/', 'EnterprisesController@index')->name('index');
     Route::get('/create', 'EnterprisesController@show_form')->name('show_form');

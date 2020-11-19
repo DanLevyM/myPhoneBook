@@ -30,7 +30,7 @@
                             <a href=""><button class="btn btn-primary">Editer</button></a>
                             @endcan
                             @can('delete-users')
-                            <form action="" method="POST" class="d-inline">
+                            <form action="{{ route('enterprises.destroy', $enterprise->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-warning">Supprimer</button>
