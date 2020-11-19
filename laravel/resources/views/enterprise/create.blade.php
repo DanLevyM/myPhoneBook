@@ -56,14 +56,14 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">Creer</button>
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary form-control">Creer</button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
+        <button class="btn btn-outline-dark col-md-2 offset-md-10 mt-3 right"><a href="{{ route('enterprises.index') }}" style="text-decoration: none; color:#525864">Retour</a></button>    
         </div>
     </div>
 </div>

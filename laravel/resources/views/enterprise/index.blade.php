@@ -5,8 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <a href="{{ route('enterprises.show_form') }}" class="btn btn-primary btn-lg" role="button">Ajouter une entreprise</a>
-                <div class="card-header">Liste des entreprises</div>
+                <div class="card-header"><h1>Liste des entreprises</h1></div>
 
                 <div class="card-body">
                 <table class="table">
@@ -33,7 +32,7 @@
                             <form action="{{ route('enterprises.destroy', $enterprise->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-warning">Supprimer</button>
+                                <button class="btn btn-danger">Supprimer</button>
                             </form>
                             @endcan
                             </td>
@@ -42,6 +41,7 @@
                     </tbody>
                 </table>
             </div>
+        <a href="{{ route('enterprises.show_form') }}" class="btn btn-primary btn-lg" role="button">Ajouter une entreprise</a>
         </div>
     </div>
 </div>
