@@ -27,7 +27,7 @@
                             <td>{{ $enterprise->postcode }}</td>
                             <td>
                             @can('edit-users')
-                            <a href=""><button class="btn btn-primary">Editer</button></a>
+                            <a href="{{ route('enterprises.edit', $enterprise->id) }}"><button class="btn btn-primary">Editer</button></a>
                             @endcan
                             @can('delete-users')
                             <form action="{{ route('enterprises.destroy', $enterprise->id) }}" method="POST" class="d-inline">

@@ -83,9 +83,16 @@ class EnterprisesController extends Controller
      * @param  \App\Models\Enterprise  $enterprise
      * @return \Illuminate\Http\Response
      */
-    public function edit(Enterprise $enterprise)
+    public function edit(Enterprise $id)
     {
-        //
+        if(Gate::denies('edit-users'))
+        {
+            return redirect()->route('enterprises.index');
+        }
+
+        return view('enterprise.edit', [
+            'enterprise' => $id
+        ]);    
     }
 
     /**
@@ -95,9 +102,29 @@ class EnterprisesController extends Controller
      * @param  \App\Models\Enterprise  $enterprise
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Enterprise $enterprise)
+    public function update(Request $request, Enterprise $id)
     {
-        //
+        if(Gate::denies('edit-users'))
+        {
+            return redirect()->route('enterprises.index');
+        }
+        
+        $validatedData = $request->validate([
+            'name' => 'required|max:80',
+            'address' => 'required|max:100',
+            'postcode' => 'required|max:5',
+            'city' => 'required|max:50',
+            'phone_number' => 'required|min:10|max:10'
+        ]);
+        
+        $id->name = $request->name;
+        $id->address = $request->address;
+        $id->postcode = $request->postcode;
+        $id->city = $request->city;
+        $id->phone_number = $request->phone_number;
+        $id->email = $request->email;
+        $id->save();
+        return redirect()->route('enterprises.index');
     }
 
     /**
