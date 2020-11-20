@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Collaborateur;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 
 class CollaborateursController extends Controller
 {
@@ -62,5 +63,20 @@ class CollaborateursController extends Controller
         return view('collaborateur.create');
     }
 
+        /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Enterprise  $enterprise
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Employee $id)
+    {
+        if(Gate::denies('delete-users'))
+        {
+            return redirect()->route('/collaborateurs.index');
+        }
 
+        $id->delete();
+        return redirect()->route('collaborateurs.index');
+    }
 }

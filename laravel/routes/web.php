@@ -23,20 +23,25 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Route::get('/admin/users', [App\Http\Controllers\Admin\UsersController::class, 'index'])->name('users.index');
-
+// ===================================
+// ----------------- USERS -----
+// ===================================
 Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')->middleware('can:edit-users')->group(function() {
     Route::get('users', 'UsersController@index')->name('users.index');
     Route::patch('users/{user}', 'UsersController@update')->name('users.update');
     Route::delete('user/{user}', 'UsersController@destroy')->name('users.destroy');
     Route::get('users/edit/{user}', 'UsersController@edit')->name('users.edit');
-    //Route::get('users', 'UsersController@destroy')->name('users.destroy');
 });
 
+// ===================================
+// ----------------- ENTREPRISES -----
+// ===================================
+// ---- ADMIN
 Route::namespace('App\Http\Controllers\Enterprise')->prefix('enterprises')->name('enterprises.')->middleware('can:delete-users')->group(function() {
     Route::delete('/delete/{id}', 'EnterprisesController@destroy')->name('destroy');
 });
 
+// ---- MANAGER
 Route::namespace('App\Http\Controllers\Enterprise')->prefix('enterprises')->name('enterprises.')->middleware('can:edit-users')->group(function() {
     Route::get('/', 'EnterprisesController@index')->name('index');
     Route::post('/', 'EnterprisesController@create')->name('create');
@@ -45,12 +50,24 @@ Route::namespace('App\Http\Controllers\Enterprise')->prefix('enterprises')->name
     Route::patch('/update/{id}', 'EnterprisesController@update')->name('update');
 });
 
+// ---- USER
 Route::namespace('App\Http\Controllers\Enterprise')->prefix('enterprises')->name('enterprises.')->middleware('can:see-users')->group(function() {
     Route::get('/{id}', 'EnterprisesController@enterprise_details')->name('details');
 });
 
+// ===================================
+// -------------- COLLABORATEURS -----
+// ===================================
+// ---- ADMIN
+Route::namespace('App\Http\Controllers\Collaborateur')->prefix('collaborateurs')->name('collaborateurs.')->middleware('can:delete-users')->group(function() {
+    Route::delete('/delete/{id}', 'CollaborateursController@destroy')->name('destroy');
+});
+
+// ---- MANAGER
 Route::namespace('App\Http\Controllers\Collaborateur')->prefix('collaborateurs')->name('collaborateurs.')->middleware('can:edit-users')->group(function() {
     Route::get('/', 'CollaborateursController@index')->name('index');
     Route::post('/', 'CollaborateursController@create')->name('create');
     Route::get('/create', 'CollaborateursController@show_form')->name('show_form');
 });
+
+// ---- USER
