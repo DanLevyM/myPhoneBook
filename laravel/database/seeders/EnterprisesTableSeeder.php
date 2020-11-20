@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Employee;
 use App\Models\Enterprise;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class EnterprisesTableSeeder extends Seeder
 {
@@ -15,8 +17,9 @@ class EnterprisesTableSeeder extends Seeder
     public function run()
     {
         Enterprise::truncate();
+        DB::table('employee_enterprise')->truncate();
 
-        Enterprise::create([
+        $enterprise1 = Enterprise::create([
             'name' => 'enterprise 1',
             'address' => 'address 1',
             'postcode' => '75001',
@@ -25,7 +28,7 @@ class EnterprisesTableSeeder extends Seeder
             'email' => 'e1@gmail.com'
         ]);
 
-        Enterprise::create([
+        $enterprise2 = Enterprise::create([
             'name' => 'enterprise 2',
             'address' => 'address 2',
             'postcode' => '75002',
@@ -34,7 +37,7 @@ class EnterprisesTableSeeder extends Seeder
             'email' => 'e2@gmail.com'
         ]);
 
-        Enterprise::create([
+        $enterprise3 = Enterprise::create([
             'name' => 'enterprise 3',
             'address' => 'address 3',
             'postcode' => '75003',
@@ -42,5 +45,13 @@ class EnterprisesTableSeeder extends Seeder
             'phone_number' => '1102030405',
             'email' => 'e3@gmail.com'
         ]);
+
+        $enterprise1Employee = Employee::where('id', 1)->first();
+        $enterprise2Employee = Employee::where('id', 2)->first();
+        $enterprise3Employee = Employee::where('id', 3)->first();
+
+        $enterprise1->employees()->attach($enterprise1Employee);
+        $enterprise2->employees()->attach($enterprise2Employee);
+        $enterprise3->employees()->attach($enterprise3Employee);
     }
 }

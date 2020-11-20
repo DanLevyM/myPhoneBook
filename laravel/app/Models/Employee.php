@@ -5,23 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Enterprise extends Model
+class Employee extends Model
 {
     use HasFactory;
-
-        /**
+            /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     
     protected $fillable = [
-        'name',
+        'sexe',
+        'last_name',
+        'first_name',
         'address',
         'postcode',
         'city',
         'phone_number',
-        'email'
+        'email',
+        'enterprise_name',
+        'enterprise_id'
     ];
 
     /**
@@ -33,8 +36,8 @@ class Enterprise extends Model
         'email_verified_at' => 'datetime',
     ];
 
-    public function employees()
+    public function enterprises()
     {
-        return $this->belongsToMany('App\Models\Employee');
+        return $this->hasOne('App\Models\Enterprise');
     }
 }
