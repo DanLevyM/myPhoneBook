@@ -15,6 +15,7 @@
                             <th scope="col">Prenom</th>    
                             <th scope="col">Telephone</th>
                             <th scope="col">Email</th>
+                            <th scope="col">id</th>
                             <th scope="col">Nom de l'entreprise</th>
                             <th scope="col">Numero de l'entreprise</th>
                         </tr>
@@ -26,6 +27,7 @@
                             <td class="align-middle">{{ $employee->first_name }}</td>
                             <td class="align-middle">{{ $employee->phone_number }}</td>
                             <td class="align-middle">{{ $employee->email }}</td>
+                            <td class="align-middle">{{ implode(', ', $employee->enterprises()->get()->pluck('id')->toArray()) }}</td>
                             <td class="align-middle">{{ implode(', ', $employee->enterprises()->get()->pluck('name')->toArray()) }}</td>
                             <td class="align-middle">{{ implode(', ', $employee->enterprises()->get()->pluck('phone_number')->toArray()) }}</td>
                             <td>
