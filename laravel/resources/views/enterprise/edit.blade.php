@@ -85,10 +85,10 @@
                                 <button type="submit" class="btn btn-primary">Modifier entreprise</button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
+        <button class="btn btn-outline-dark col-md-2 offset-md-10 mt-3 right"><a href="{{ route('enterprises.index') }}" style="text-decoration: none; color:#525864">Retour</a></button>    
         </div>
     </div>
 </div>

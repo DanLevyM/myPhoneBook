@@ -19,7 +19,7 @@ class CreateEnterprisesTable extends Migration
             $table->string('address', 100);
             $table->string('postcode', 5);
             $table->string('city', 50);
-            $table->string('phone_number', 10)->unique();
+            $table->string('phone_number', 10)->unique()->nullable();
             $table->string('email', 100)->unique();
             $table->timestamps();
         });
