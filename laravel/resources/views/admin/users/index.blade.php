@@ -43,6 +43,7 @@
                 </table>
                 </div>
             </div>
+        <button class="btn btn-outline-dark col-md-2 offset-md-10 mt-3 right"><a href="{{ route('home') }}" style="text-decoration: none; color:#525864">Accueil</a></button>    
         </div>
     </div>
 </div>

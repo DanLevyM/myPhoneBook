@@ -45,7 +45,7 @@
                     </tbody>
                 </table>
             </div>
-        @can('edit-user')
+        @can('edit-users')
         <a href="{{ route('collaborateurs.show_form') }}" class="btn btn-primary btn-lg" role="button">Ajouter un collaborateur</a>
         @endcan
         </div>
