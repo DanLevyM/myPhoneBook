@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Employee;
+use App\Models\Enterprise;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class EmployeesTableSeeder extends Seeder
 {
@@ -15,8 +17,9 @@ class EmployeesTableSeeder extends Seeder
     public function run()
     {
         Employee::truncate();
+        DB::table('employee_enterprise')->truncate();
 
-        Employee::create([
+        $employee1 = Employee::create([
             'sexe' => 'M',
             'last_name' => 'aaaaa',
             'first_name' => 'aaaa',
@@ -27,7 +30,7 @@ class EmployeesTableSeeder extends Seeder
             'email' => 'lui@gmail.com',
         ]);
 
-        Employee::create([
+        $employee2 = Employee::create([
             'sexe' => 'M',
             'last_name' => 'bbb',
             'first_name' => 'bbbbb',
@@ -38,7 +41,7 @@ class EmployeesTableSeeder extends Seeder
             'email' => 'bbbbbb@gmail.com',
         ]);
 
-        Employee::create([
+        $employee3 = Employee::create([
             'sexe' => 'M',
             'last_name' => 'ccccc',
             'first_name' => 'cccccc',
@@ -49,7 +52,7 @@ class EmployeesTableSeeder extends Seeder
             'email' => 'ccccc@gmail.com',
         ]);
 
-        $employee = Employee::create([
+        $employee4 = Employee::create([
             'sexe' => 'M',
             'last_name' => 'ddd',
             'first_name' => 'dddddd',
@@ -60,7 +63,7 @@ class EmployeesTableSeeder extends Seeder
             'email' => 'dd@gmail.com',
         ]);
 
-        $employee = Employee::create([
+        $employee5 = Employee::create([
             'sexe' => 'M',
             'last_name' => 'ee',
             'first_name' => 'eeeeee',
@@ -71,7 +74,7 @@ class EmployeesTableSeeder extends Seeder
             'email' => 'ee@gmail.com',
         ]);
 
-        $employee = Employee::create([
+        $employee6 = Employee::create([
             'sexe' => 'M',
             'last_name' => 'ff',
             'first_name' => 'fffff',
@@ -82,7 +85,7 @@ class EmployeesTableSeeder extends Seeder
             'email' => 'fff@gmail.com',
         ]);
 
-        $employee = Employee::create([
+        $employee7 = Employee::create([
             'sexe' => 'M',
             'last_name' => 'gg',
             'first_name' => 'gggg',
@@ -93,7 +96,7 @@ class EmployeesTableSeeder extends Seeder
             'email' => 'gg@gmail.com',
         ]);
 
-        $employee = Employee::create([
+        $employee8 = Employee::create([
             'sexe' => 'M',
             'last_name' => 'hh',
             'first_name' => 'hhhhh',
@@ -103,5 +106,23 @@ class EmployeesTableSeeder extends Seeder
             'phone_number' => '7777777777',
             'email' => 'hh@gmail.com',
         ]);
+
+        $employee1Entreprise = Enterprise::where('id', 1)->first();
+        $employee2Entreprise = Enterprise::where('id', 1)->first();
+        $employee3Entreprise = Enterprise::where('id', 1)->first();
+        $employee4Entreprise = Enterprise::where('id', 2)->first();
+        $employee5Entreprise = Enterprise::where('id', 2)->first();
+        $employee6Entreprise = Enterprise::where('id', 2)->first();
+        $employee7Entreprise = Enterprise::where('id', 2)->first();
+        $employee8Entreprise = Enterprise::where('id', 3)->first();
+        
+        $employee1->enterprises()->attach($employee1Entreprise);
+        $employee2->enterprises()->attach($employee2Entreprise);
+        $employee3->enterprises()->attach($employee3Entreprise);
+        $employee4->enterprises()->attach($employee4Entreprise);
+        $employee5->enterprises()->attach($employee5Entreprise);
+        $employee6->enterprises()->attach($employee6Entreprise);
+        $employee7->enterprises()->attach($employee7Entreprise);
+        $employee8->enterprises()->attach($employee8Entreprise);
     }
 }

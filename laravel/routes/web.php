@@ -51,4 +51,6 @@ Route::namespace('App\Http\Controllers\Enterprise')->prefix('enterprises')->name
 
 Route::namespace('App\Http\Controllers\Collaborateur')->prefix('collaborateurs')->name('collaborateurs.')->middleware('can:edit-users')->group(function() {
     Route::get('/', 'CollaborateursController@index')->name('index');
+    Route::post('/', 'CollaborateursController@create')->name('create');
+    Route::get('/create', 'CollaborateursController@show_form')->name('show_form');
 });

@@ -38,6 +38,6 @@ class Employee extends Model
 
     public function enterprises()
     {
-        return $this->hasOne('App\Models\Enterprise');
+        return $this->belongsToMany('App\Models\Enterprise');
     }
 }

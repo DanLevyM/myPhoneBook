@@ -144,7 +144,7 @@ class EnterprisesController extends Controller
         return redirect()->route('enterprises.index');
     }
 
-        public function show_form()
+    public function show_form()
     {
         return view('enterprise.create');
     }
