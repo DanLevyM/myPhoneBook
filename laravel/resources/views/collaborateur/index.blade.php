@@ -32,7 +32,7 @@
                             <td class="align-middle">{{ implode(', ', $employee->enterprises()->get()->pluck('phone_number')->toArray()) }}</td>
                             <td>
                             @can('edit-users')
-                            <a href=""><button class="btn btn-primary">Editer</button></a>
+                            <a href="{{ route('collaborateurs.edit', $employee->id ) }}"><button class="btn btn-primary">Editer</button></a>
                             @endcan
                             @can('delete-users')
                             <form action="{{ route('collaborateurs.destroy', $employee->id) }}" method="POST" class="d-inline">

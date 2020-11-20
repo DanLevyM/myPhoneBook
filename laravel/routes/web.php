@@ -68,6 +68,8 @@ Route::namespace('App\Http\Controllers\Collaborateur')->prefix('collaborateurs')
     Route::get('/', 'CollaborateursController@index')->name('index');
     Route::post('/', 'CollaborateursController@create')->name('create');
     Route::get('/create', 'CollaborateursController@show_form')->name('show_form');
+    Route::get('/edit/{id}', 'CollaborateursController@edit')->name('edit');
+    Route::patch('/update/{id}', 'CollaborateursController@update')->name('update');
 });
 
 // ---- USER

@@ -62,6 +62,59 @@ class CollaborateursController extends Controller
         return redirect('collaborateurs');
     }
 
+    public function edit(Employee $id)
+    {
+        if(Gate::denies('edit-users'))
+        {
+            return redirect()->route('collaborateurs.index');
+        }
+
+        $enterprises = Enterprise::all();
+
+        return view('collaborateur.edit', [
+            'employee' => $id
+        ])->with('enterprises', $enterprises);    
+    }
+
+        /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Enterprise  $enterprise
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Employee $id)
+    {
+        if(Gate::denies('edit-users'))
+        {
+            return redirect()->route('collaborateurs.index');
+        }
+
+        $validatedData = $request->validate([
+            'last_name' => 'required|max:80',
+            'first_name' => 'required|max:80',
+            'address' => 'required|max:100',
+            'postcode' => 'required|max:5',
+            'city' => 'required|max:50',
+            'phone_number' => 'required|min:10|max:10'
+        ]);
+        
+        $id->first_name = $request->first_name;
+        $id->last_name = $request->last_name;
+        $id->address = $request->address;
+        $id->postcode = $request->postcode;
+        $id->city = $request->city;
+        $id->phone_number = $request->phone_number;
+        $id->email = $request->email;
+
+        $id->enterprises()->detach();
+        $employeeEnterprise = Enterprise::where('id', $request['enterprise_id'])->first();
+        $id->enterprises()->attach($employeeEnterprise);
+        
+        $id->save();
+        return redirect()->route('collaborateurs.index');
+    }
+
     public function show_form()
     {
         $enterprises = Enterprise::all();
