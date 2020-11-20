@@ -63,7 +63,11 @@
                                     @endcan
 
                                     @can('edit-users')
-                                    <a class="dropdown-item" href="{{ route('enterprises.index') }}">Entreprises</a>
+                                    <a class="dropdown-item" href="{{ route('enterprises.index') }}">Liste des entreprises</a>
+                                    @endcan
+
+                                    @can('edit-users')
+                                    <a class="dropdown-item" href="{{ route('collaborateurs.index') }}">Liste des collaborateurs</a>
                                     @endcan
 
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

@@ -49,3 +49,6 @@ Route::namespace('App\Http\Controllers\Enterprise')->prefix('enterprises')->name
     Route::get('/{id}', 'EnterprisesController@enterprise_details')->name('details');
 });
 
+Route::namespace('App\Http\Controllers\Collaborateur')->prefix('collaborateurs')->name('collaborateurs.')->middleware('can:edit-users')->group(function() {
+    Route::get('/', 'CollaborateursController@index')->name('index');
+});

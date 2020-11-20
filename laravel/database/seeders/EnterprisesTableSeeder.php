@@ -49,9 +49,19 @@ class EnterprisesTableSeeder extends Seeder
         $enterprise1Employee = Employee::where('id', 1)->first();
         $enterprise2Employee = Employee::where('id', 2)->first();
         $enterprise3Employee = Employee::where('id', 3)->first();
+        $enterprise4Employee = Employee::where('id', 4)->first();
+        $enterprise5Employee = Employee::where('id', 5)->first();
+        $enterprise6Employee = Employee::where('id', 6)->first();
+        $enterprise7Employee = Employee::where('id', 7)->first();
+        $enterprise8Employee = Employee::where('id', 8)->first();
 
         $enterprise1->employees()->attach($enterprise1Employee);
         $enterprise2->employees()->attach($enterprise2Employee);
-        $enterprise3->employees()->attach($enterprise3Employee);
+        $enterprise2->employees()->attach($enterprise3Employee);
+        $enterprise2->employees()->attach($enterprise4Employee);
+        $enterprise3->employees()->attach($enterprise5Employee);
+        $enterprise3->employees()->attach($enterprise6Employee);
+        $enterprise3->employees()->attach($enterprise7Employee);
+        $enterprise3->employees()->attach($enterprise8Employee);
     }
 }
