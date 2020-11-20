@@ -39,8 +39,8 @@ Route::namespace('App\Http\Controllers\Enterprise')->prefix('enterprises')->name
 
 Route::namespace('App\Http\Controllers\Enterprise')->prefix('enterprises')->name('enterprises.')->middleware('can:edit-users')->group(function() {
     Route::get('/', 'EnterprisesController@index')->name('index');
-    Route::get('/create', 'EnterprisesController@show_form')->name('show_form');
     Route::post('/', 'EnterprisesController@create')->name('create');
+    Route::get('/create', 'EnterprisesController@show_form')->name('show_form');
     Route::get('/edit/{id}', 'EnterprisesController@edit')->name('edit');
     Route::patch('/update/{id}', 'EnterprisesController@update')->name('update');
 });

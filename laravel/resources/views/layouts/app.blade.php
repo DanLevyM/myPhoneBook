@@ -59,7 +59,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @can('edit-users')
-                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">Liste users</a>
+                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">Liste des utilisateurs</a>
                                     @endcan
 
                                     @can('edit-users')
