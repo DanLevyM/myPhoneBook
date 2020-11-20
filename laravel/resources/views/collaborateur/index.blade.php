@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-16">
             <div class="card">
                 <div class="card-header"><h1>Liste des collaborateurs</h1></div>
 
@@ -15,7 +15,6 @@
                             <th scope="col">Prenom</th>    
                             <th scope="col">Telephone</th>
                             <th scope="col">Email</th>
-                            <th scope="col">id</th>
                             <th scope="col">Nom de l'entreprise</th>
                             <th scope="col">Numero de l'entreprise</th>
                         </tr>
@@ -27,7 +26,6 @@
                             <td class="align-middle">{{ $employee->first_name }}</td>
                             <td class="align-middle">{{ $employee->phone_number }}</td>
                             <td class="align-middle">{{ $employee->email }}</td>
-                            <td class="align-middle">{{ implode(', ', $employee->enterprises()->get()->pluck('id')->toArray()) }}</td>
                             <td class="align-middle">{{ implode(', ', $employee->enterprises()->get()->pluck('name')->toArray()) }}</td>
                             <td class="align-middle">{{ implode(', ', $employee->enterprises()->get()->pluck('phone_number')->toArray()) }}</td>
                             <td>
@@ -47,7 +45,9 @@
                     </tbody>
                 </table>
             </div>
+        @can('edit-user')
         <a href="{{ route('collaborateurs.show_form') }}" class="btn btn-primary btn-lg" role="button">Ajouter un collaborateur</a>
+        @endcan
         </div>
     </div>
 </div>

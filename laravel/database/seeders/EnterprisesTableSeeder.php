@@ -18,30 +18,30 @@ class EnterprisesTableSeeder extends Seeder
         Enterprise::truncate();
 
         Enterprise::create([
-            'name' => 'enterprise 1',
+            'name' => 'Amazon',
             'address' => 'address 1',
             'postcode' => '75001',
             'city' => 'paris',
             'phone_number' => '0102030405',
-            'email' => 'e1@gmail.com'
+            'email' => 'amazon@gmail.com'
         ]);
 
         Enterprise::create([
-            'name' => 'enterprise 2',
+            'name' => 'Facebook',
             'address' => 'address 2',
             'postcode' => '75002',
-            'city' => 'marseilles',
+            'city' => 'marseille',
             'phone_number' => '0102020405',
-            'email' => 'e2@gmail.com'
+            'email' => 'fb@gmail.com'
         ]);
 
         Enterprise::create([
-            'name' => 'enterprise 3',
+            'name' => 'Apple',
             'address' => 'address 3',
             'postcode' => '75003',
-            'city' => 'paris',
+            'city' => 'lyon',
             'phone_number' => '1102030405',
-            'email' => 'e3@gmail.com'
+            'email' => 'apple@gmail.com'
         ]);
     }
 }

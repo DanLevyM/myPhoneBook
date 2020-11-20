@@ -21,90 +21,90 @@ class EmployeesTableSeeder extends Seeder
 
         $employee1 = Employee::create([
             'sexe' => 'M',
-            'last_name' => 'aaaaa',
-            'first_name' => 'aaaa',
+            'last_name' => 'Collaborateur 1',
+            'first_name' => 'Collaborateur 1',
             'address' => '50 av aaa',
             'postcode' => '33333',
             'city' => 'paris',
-            'phone_number' => '0909090909',
-            'email' => 'lui@gmail.com',
+            'phone_number' => '0000000000',
+            'email' => 'collaborateur1@gmail.com',
         ]);
 
         $employee2 = Employee::create([
             'sexe' => 'M',
-            'last_name' => 'bbb',
-            'first_name' => 'bbbbb',
+            'last_name' => 'Collaborateur 2',
+            'first_name' => 'Collaborateur 2',
             'address' => '50 av bbbb',
             'postcode' => '33333',
             'city' => 'paris',
-            'phone_number' => '0000000000',
-            'email' => 'bbbbbb@gmail.com',
+            'phone_number' => '0000000001',
+            'email' => 'collaborateur2@gmail.com',
         ]);
 
         $employee3 = Employee::create([
             'sexe' => 'M',
-            'last_name' => 'ccccc',
-            'first_name' => 'cccccc',
+            'last_name' => 'Collaborateur 3',
+            'first_name' => 'Collaborateur 3',
             'address' => '50 av ccccc',
             'postcode' => '33333',
             'city' => 'paris',
-            'phone_number' => '9999999999',
-            'email' => 'ccccc@gmail.com',
+            'phone_number' => '0000000002',
+            'email' => 'collaborateur3@gmail.com',
         ]);
 
         $employee4 = Employee::create([
             'sexe' => 'M',
-            'last_name' => 'ddd',
-            'first_name' => 'dddddd',
+            'last_name' => 'Collaborateur 4',
+            'first_name' => 'Collaborateur 4',
             'address' => '50 av ddddd',
             'postcode' => '33333',
             'city' => 'paris',
-            'phone_number' => '1111111111',
-            'email' => 'dd@gmail.com',
+            'phone_number' => '0000000003',
+            'email' => 'collaborateur4@gmail.com',
         ]);
 
         $employee5 = Employee::create([
             'sexe' => 'M',
-            'last_name' => 'ee',
-            'first_name' => 'eeeeee',
+            'last_name' => 'Collaborateur 5',
+            'first_name' => 'Collaborateur 5',
             'address' => '50 av ee',
             'postcode' => '33333',
             'city' => 'paris',
-            'phone_number' => '2222222222',
-            'email' => 'ee@gmail.com',
+            'phone_number' => '0000000004',
+            'email' => 'collaborateur5@gmail.com',
         ]);
 
         $employee6 = Employee::create([
             'sexe' => 'M',
-            'last_name' => 'ff',
-            'first_name' => 'fffff',
+            'last_name' => 'Collaborateur 6',
+            'first_name' => 'Collaborateur 6',
             'address' => '50 av fff',
             'postcode' => '33333',
             'city' => 'paris',
-            'phone_number' => '9897939292',
-            'email' => 'fff@gmail.com',
+            'phone_number' => '0000000005',
+            'email' => 'collaborateur6@gmail.com',
         ]);
 
         $employee7 = Employee::create([
             'sexe' => 'M',
-            'last_name' => 'gg',
-            'first_name' => 'gggg',
+            'last_name' => 'Collaborateur 7',
+            'first_name' => 'Collaborateur 7',
             'address' => '50 av gg',
             'postcode' => '33333',
             'city' => 'paris',
-            'phone_number' => '1213141516',
-            'email' => 'gg@gmail.com',
+            'phone_number' => '0000000006',
+            'email' => 'collaborateur7@gmail.com',
         ]);
 
         $employee8 = Employee::create([
             'sexe' => 'M',
-            'last_name' => 'hh',
-            'first_name' => 'hhhhh',
+            'last_name' => 'Collaborateur 8',
+            'first_name' => 'Collaborateur 8',
             'address' => '50 av hh',
             'postcode' => '33333',
             'city' => 'paris',
-            'phone_number' => '7777777777',
-            'email' => 'hh@gmail.com',
+            'phone_number' => '0000000007',
+            'email' => 'collaborateur8@gmail.com',
         ]);
 
         $employee1Entreprise = Enterprise::where('id', 1)->first();

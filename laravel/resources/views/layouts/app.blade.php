@@ -66,7 +66,7 @@
                                     <a class="dropdown-item" href="{{ route('enterprises.index') }}">Liste des entreprises</a>
                                     @endcan
 
-                                    @can('edit-users')
+                                    @can('see-users')
                                     <a class="dropdown-item" href="{{ route('collaborateurs.index') }}">Liste des collaborateurs</a>
                                     @endcan
 
